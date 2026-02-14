@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Henry 3.2 - Update - UXPin Preview</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="apple-touch-icon" href="data/_img_ios-logo-180x180-4f260175.png">
+    <link rel="icon" type="image/png" href="data/_img_favicon-90cb8314.ico">
+    <link rel="icon" sizes="180x180" href="data/_img_ios-logo-180x180-4f260175.png">
+    <link rel="shortcut icon" href="data/_img_favicon-90cb8314.ico">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    
+
+    <link rel="stylesheet" href="data/collaborate.uxpincdn.com_styles__review-296aac0d.css">
+    
+
+    
+    <!-- auto-generated on export -->
+    <link rel="stylesheet" href="data/fonts.css">
+
+    
+    
+</head>
+
+
+<body ng-controller="HomeController" class="loading" ng-class="{'loading' : isLoading, 'left-panel-active' : (isVisible && sidebarVisible), 'sitemap-visible' : (sitemapVisible && sidebarVisible), 'panel-visible' : (panelVisible && sidebarVisible), 'specification-visible': (specificationVisible && sidebarVisible), 'adding-comment' : isAddingComment, 'dragging' : dragging, 'no-toolbar' : noToolbar || isParticipant, 'crosshair-cursor' : showCrosshairCursor, 'sidebar-collapsed' : sidebarVisible === false, 'mac': isMac}" ng-keydown="keyDown($event)">
+    
+
+    <div ui-view></div>
+    <div ui-view="commentsFilter"></div>
+    <div ng-class="{'fade-in' : specificationFadeIn}" ui-view="specification"></div>
+    <div ng-class="{'fade-in' : panelFadeIn}" ui-view="comments"></div>
+    <div ng-class="{'fade-in' : sitemapFadeIn}" ui-view="sitemap"></div>
+    <div ui-view="nav"></div>
+    <div ui-view="canvas"></div>
+    <section id="responsive-toolbar" adjust-to-viewport-size>
+        <a class="only-icon-font icon-font-arrow show-main-toolbar" ng-click="showToolbar()" toggle-visibility toggle-flag="!isToolbarVisible()" toggle-width-open="34" toggle-width-closed="0" ng-if="!params.isDocument">
+            Show main toolbar
+            <span class="tooltip bottom-arrow">Show main toolbar</span>
+        </a>
+        <div ui-view="approvalProcess"></div>
+        <pv-breakpoints breakpoints="breakpoints"></pv-breakpoints>
+        <ul ui-view="breadcrumbs" ng-if="breadcrumbsVisible" class="breadcrumbs"></ul>
+        <div ui-view="settings"></div>
+    </section>
+    <div ui-view="overlay"></div>
+    <div class="loader"></div>
+
+
+    <script type="text/javascript">
+    window.ApplicationConfiguration = {
+            project:{"id_project":5770045,"custom_font_css_url":"https://api2.uxpin.com/fonts/custom/css/file?id=490214","custom_fonts_url":"http://api.uxpin/fonts/custom/css/?id=490214","id_collection":1255749,"id_account":490214,"name":"Henry 3.2 - Update","hash":"d785b3038f99c39b17bb8ae7261be0923dd1028d","type":"W","features":{"live_share":false,"user_testing":false,"password":true,"team_comments":false,"spec_mode":false,"spec_mode_styleguide":false,"preview_30":true,"preview_30_abtest":false,"comments_assignment":false,"design_views":false},"settings":{"grid":{"default":{"width":960,"cols_count":12,"col_width":60,"col_spacing":20,"fixed_width":false,"margin":20,"page_width":960},"resp0":{"cols_count":62,"col_width":60,"grid_on_top":true,"col_spacing":20,"fixed_width":false,"margin":20,"enabled":false,"width":"100%"},"should_accept_grid_with_page_width":false,"enabled":false,"grid_on_top":true,"resp1":{"cols_count":3,"col_width":80,"grid_on_top":true,"col_spacing":20,"fixed_width":true,"margin":20,"enabled":false,"width":320},"resp7":{"cols_count":12,"col_width":79,"grid_on_top":true,"col_spacing":20,"fixed_width":true,"margin":15,"enabled":false,"width":1198},"resp4":{"cols_count":7,"col_width":91,"grid_on_top":true,"col_spacing":15,"fixed_width":true,"margin":20,"enabled":false,"width":767},"fixed_width_for_breakpoints":false}},"created_at":"2016-06-01T20:12:44+01:00","updated_at":"2017-04-25T22:12:46+01:00"},
+            userData:{"is_trial":false,"is_anonymous":true,"is_owner":false},
+            mode: 'export',
+            menuEnabled:true};
+         window._rollbarConfig = {};
+         window._rollbarInitialized = true;
+    </script>
+
+    
+        <script type="text/javascript" src="data/collaborate.uxpincdn.com_scripts_engine-f38f416b.js"></script>
+        <script type="text/javascript" src="data/collaborate.uxpincdn.com_scripts_vendors-d1b18002.js"></script>
+        <script type="text/javascript" src="data/collaborate.uxpincdn.com_scripts_app-3aec2a5f.js"></script>
+        
+    
+
+</body>
+
+
+</html>

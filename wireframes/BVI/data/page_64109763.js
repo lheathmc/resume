@@ -1,0 +1,1 @@
+;(function(global) { global.DATA = {"page":[],"last_update":"0","components_master_ids":[]}; })(window);
