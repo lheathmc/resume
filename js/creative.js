@@ -1,48 +1,79 @@
-/*!
- * Start Bootstrap - Creative Bootstrap Theme (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
-
-(function($) {
+(function() {
     "use strict"; // Start of use strict
 
-    // jQuery for page scrolling feature - requires jQuery Easing plugin
-    $('a.page-scroll').bind('click', function(event) {
-        var $anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: ($($anchor.attr('href')).offset().top - 50)
-        }, 1250, 'easeInOutExpo');
-        event.preventDefault();
+    // Smooth page scrolling feature for page scroll links
+    document.querySelectorAll('a.page-scroll').forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const offsetTop = targetElement.offsetTop - 50;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 
-    // Highlight the top nav as scrolling occurs
-    $('body').scrollspy({
-        target: '.navbar-fixed-top',
-        offset: 51
-    })
+    // Initialize Bootstrap Scrollspy
+    const navbarElement = document.querySelector('.navbar-fixed-top');
+    if (navbarElement) {
+        new bootstrap.ScrollSpy(document.body, {
+            target: '.navbar-fixed-top',
+            offset: 51
+        });
+    }
 
     // Closes the Responsive Menu on Menu Item Click
-    $('.navbar-collapse ul li a').click(function() {
-        $('.navbar-toggle:visible').click();
+    document.querySelectorAll('.navbar-collapse ul li a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            const toggleButton = document.querySelector('.navbar-toggle:not(.hidden)');
+            if (toggleButton) {
+                toggleButton.click();
+            }
+        });
     });
 
-    // Fit Text Plugin for Main Header
-    $("h1").fitText(
-        1.2, {
-            minFontSize: '30px',
-            maxFontSize: '65px'
-        }
-    );
+    // Responsive font sizing for main header
+    function fitText(elements, fontSizeTarget) {
+        elements.forEach(function(element) {
+            const minFontSize = 30;
+            const maxFontSize = 65;
+            const minWidth = 320;
+            const maxWidth = 1200;
+            
+            function resize() {
+                const width = window.innerWidth;
+                let fontSize = minFontSize + (width - minWidth) / (maxWidth - minWidth) * (maxFontSize - minFontSize);
+                fontSize = Math.max(minFontSize, Math.min(maxFontSize, fontSize));
+                element.style.fontSize = fontSize + 'px';
+            }
+            
+            resize();
+            window.addEventListener('resize', resize);
+        });
+    }
+    
+    fitText(document.querySelectorAll('h1'));
 
-    // Offset for Main Navigation
-    $('#mainNav').affix({
-        offset: {
-            top: 100
-        }
-    })
+    // Offset for Main Navigation - make it sticky on scroll
+    const mainNav = document.getElementById('mainNav');
+    if (mainNav) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY >= 100) {
+                mainNav.classList.add('affix');
+            } else {
+                mainNav.classList.remove('affix');
+            }
+        });
+    }
 
     // Initialize WOW.js Scrolling Animations
-    new WOW().init();
+    if (typeof WOW !== 'undefined') {
+        new WOW().init();
+    }
 
-})(jQuery); // End of use strict
+})(); // End of use strict
